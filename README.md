@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AntiGravity_Starter
 
-## Getting Started
+A project workspace template for client work, agent automation, and tool building. Designed to pair with [claude-config-starter](https://github.com/jonathanatborrowedbelief/claude-config-starter) for the Claude Code config side.
 
-First, run the development server:
+## Quick start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+gh repo clone jonathanatborrowedbelief/Antigravity_Starter MyWorkspace
+cd MyWorkspace
+# Edit top-level CLAUDE.md — replace {{PROJECT_NAME}}
+# Open in Claude Code
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Layout
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `clients/` — per-client workspaces (copy `.template/` to start a new one)
+- `tools/` — reusable services (copy `.template/` to start a new one)
+- `claude-rules/` — shared SOPs that apply across all clients/tools
+- `.claude/commands/` — project-level slash commands (`/context`, `/checkpoint`)
+- `CLAUDE.md` — top-level instructions Claude reads on session start
+- `CONTEXT.md` — living state of this workspace
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Pattern: Directive → Orchestration → Execution
 
-## Learn More
+Each layer has a clear role. Directives (CLAUDE.md, CONTEXT.md) tell Claude what's true. Orchestration (subagents, slash commands) coordinates work. Execution (tools/) does the heavy lifting.
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT

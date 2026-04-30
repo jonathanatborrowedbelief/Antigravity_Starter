@@ -39,7 +39,7 @@ Integrates with the existing IG content analyzer pipeline for brand voice consis
 
 1. Load the brand profile YAML:
    ```python
-   # From: tools/ig_content_analyzer/brand_profiles/aisystemsbyjon/aisystemsbyjon.yaml
+   # From: tools/ig_content_analyzer/brand_profiles/{{YOUR_BRAND_HANDLE}}/{{YOUR_BRAND_HANDLE}}.yaml
    ```
 
 2. Detect content type from the topic using keyword matching:
@@ -50,7 +50,7 @@ Integrates with the existing IG content analyzer pipeline for brand voice consis
 
 3. Build brand context using the content type for voice routing:
    ```python
-   # Calls: analyze_content.build_brand_context(profile, content_type, 'aisystemsbyjon')
+   # Calls: analyze_content.build_brand_context(profile, content_type, '{{YOUR_BRAND_HANDLE}}')
    ```
 
 4. Apply these rules to ALL generated scripts:
@@ -88,7 +88,7 @@ Rules:
 
 Before writing anything, gather:
 
-1. Load the brand profile from `tools/ig_content_analyzer/brand_profiles/aisystemsbyjon/aisystemsbyjon.yaml`
+1. Load the brand profile from `tools/ig_content_analyzer/brand_profiles/{{YOUR_BRAND_HANDLE}}/{{YOUR_BRAND_HANDLE}}.yaml`
 2. Detect content type from the topic
 3. Build brand voice context string
 4. If in batch mode: check for topic overlap with existing content plans in Airtable
@@ -722,7 +722,7 @@ When given `--batch=topics.txt` or `--generate-topics=N`:
 1. **Topic sourcing** (if `--generate-topics`):
    - Load brand profile content pillars (umbrella, problems, credibility)
    - Query Airtable for trending concepts: `generate_content_plan.py --trending --min-virality 8`
-   - Optionally run Skool scraper: `clients/borrowedbelief/skool_scraper/execution/analyze_community_sentiment.py`
+   - Optionally run Skool scraper: `clients/{{YOUR_CLIENT_NAME}}/skool_scraper/execution/analyze_community_sentiment.py`
    - Merge sources into N unique topics, tagged with content_type
 
 2. **Generate one topic at a time** (all 5 formats per topic)
